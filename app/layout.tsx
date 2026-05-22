@@ -1,10 +1,33 @@
 import type { Metadata } from 'next';
 import './globals.css';
 
+const siteName = '鹅鸭杀手游攻略站';
+const siteDescription = '最全鹅鸭杀手游职业攻略、地图任务、发言技巧与高端局套路。';
+
 export const metadata: Metadata = {
-  title: '鹅鸭杀手游攻略站',
-  description: '最全鹅鸭杀手游职业攻略、地图任务、发言技巧',
-  keywords: ['鹅鸭杀', '鹅鸭杀手游', '鹅鸭杀攻略', '职业攻略', '地图任务'],
+  metadataBase: new URL('https://example.com'),
+  title: {
+    default: siteName,
+    template: `%s | ${siteName}`,
+  },
+  description: siteDescription,
+  keywords: ['鹅鸭杀', '鹅鸭杀手游', '鹅鸭杀攻略', '职业攻略', '地图任务', '发言技巧'],
+  openGraph: {
+    title: siteName,
+    description: siteDescription,
+    siteName,
+    locale: 'zh_CN',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: siteName,
+    description: siteDescription,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
