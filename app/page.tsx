@@ -15,9 +15,9 @@ const stats = [
 ];
 
 const highlights = [
-  '搜索职业、地图、攻略关键词',
-  '按阵营快速筛职业强度与打法',
-  '站内直接预览发言模板与风险点',
+  '快速查职业思路和上手难度',
+  '会议发言模板一眼就能带进对局',
+  '地图任务路线和危险刀点直接看',
 ];
 
 const trendingKeywords = [
@@ -39,24 +39,24 @@ const tabs = [
 
 const faqItems = [
   {
-    question: '这个站现在适合拿来做什么？',
-    answer: '适合查职业思路、会议发言模板、地图危险点和新手入门逻辑，定位是高信息密度的内容站。',
+    question: '新手最应该先看什么？',
+    answer: '建议先看新手入门、常见地图路线，再去熟悉几个高出场职业，先把生存率和会议表达练起来。',
   },
   {
-    question: '这里的内容是官方数据库吗？',
-    answer: '不是官方数据库，而是基于公开玩法理解整理的攻略型内容，适合上手、复盘和内容扩展。',
+    question: '发言模板真的有用吗？',
+    answer: '有用，但不能死背。模板的作用是帮你先把信息说完整，再根据当局节奏调整怀疑和带票方式。',
   },
   {
-    question: '后面最值得补的内容是什么？',
-    answer: '最值得补的是职业进阶对局、地图刀点复盘、发言心理博弈和残局投票逻辑。',
+    question: '地图攻略重点该怎么看？',
+    answer: '不要只记任务点，更要记转角、长走廊、视野断层和会议前后最容易出锅的位置。',
   },
 ];
 
 const releaseNotes = [
-  '上线版首页支持职业、攻略、地图三类内容切换。',
-  '职业页补充了定位、克制点、实战建议和发言模板。',
-  '地图页补充了任务路线、危险刀点和适合打法。',
-  '攻略页补充了速记标签，适合直接做内容扩写。',
+  '热门职业补充了定位、节奏点和常见误区。',
+  '地图页现在能直接看任务路线和高风险区域。',
+  '攻略页加入速记重点，适合赛前快速扫一遍。',
+  '首页整理了常见问题，方便第一次玩的玩家上手。',
 ];
 
 type TabKey = (typeof tabs)[number]['key'];
@@ -267,18 +267,18 @@ export default function HomePage() {
       <section className="mx-auto max-w-6xl px-4 pb-16 pt-10 md:pb-24 md:pt-16">
         <div className="glow-ring relative mb-10 overflow-hidden rounded-[2rem] border border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(250,204,21,0.18),transparent_24%),radial-gradient(circle_at_78%_18%,rgba(34,211,238,0.16),transparent_20%),linear-gradient(135deg,rgba(15,23,42,0.92),rgba(2,6,23,0.95))] px-5 py-9 md:px-10 md:py-14">
           <div className="hero-chip section-kicker mb-6 inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold uppercase text-yellow-300">
-            Interactive Mobile Guide
+            鹅鸭杀手游攻略站
           </div>
 
           <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
             <div>
               <h1 className="mb-5 max-w-4xl text-3xl font-black leading-[1.08] tracking-tight text-white md:text-6xl">
-                不只是卡片墙，
-                <span className="text-yellow-300">直接做成能查、能筛、能预览</span>
-                的鹅鸭杀内容站。
+                职业怎么打、地图哪里危险、
+                <span className="text-yellow-300">会议里该怎么说</span>
+                ，这里一次看明白。
               </h1>
               <p className="max-w-2xl text-sm leading-8 text-slate-300 md:text-lg">
-                现在首页就能直接搜索职业、切阵营、看发言模板、展开地图刀点和攻略快读，形成适合公开访问的内容入口。
+                从新手入门到高压对局，这里整理了常见职业思路、地图任务路线、危险刀点和会议发言参考，方便你开局前快速补课。
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
@@ -311,7 +311,7 @@ export default function HomePage() {
           <div className="rounded-[1.8rem] border border-yellow-300/15 bg-yellow-400/[0.06] p-5 backdrop-blur-xl md:p-6">
             <div className="mb-4 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-yellow-300">今日强推</p>
+                <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-yellow-300">今日推荐职业</p>
                 <h2 className="text-2xl font-black text-white md:text-3xl">{featuredRole.name}：{featuredRole.badge}</h2>
               </div>
               <button
@@ -406,8 +406,8 @@ export default function HomePage() {
           <div className="soft-panel rounded-[1.75rem] border border-white/10 p-5 backdrop-blur-xl">
             <div className="mb-4 flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
               <div>
-                <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-yellow-300">Control Center</p>
-                <h2 className="text-2xl font-black text-white md:text-3xl">一页内完成主要交互</h2>
+                <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-yellow-300">快速查找</p>
+                <h2 className="text-2xl font-black text-white md:text-3xl">按你这一局最需要的内容去看</h2>
               </div>
 
               <div className="flex flex-wrap gap-2">
@@ -530,18 +530,18 @@ export default function HomePage() {
 
           <div className="space-y-5">
             <div className="rounded-[1.75rem] border border-rose-400/15 bg-rose-400/8 p-6 backdrop-blur">
-              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-rose-300">核心流量</p>
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-rose-300">高讨论内容</p>
               <h2 className="mb-3 text-2xl font-black text-white">骗人、演戏、甩锅</h2>
               <p className="text-sm leading-7 text-slate-300">
-                社交推理游戏的站点价值，不在百科，而在能不能快速把心理博弈内容做成可消费的结构。
+                最容易打出节目效果的，往往不是任务本身，而是会议里的心理博弈、甩锅节奏和临场反打。
               </p>
             </div>
 
             <div className="rounded-[1.75rem] border border-amber-400/15 bg-amber-400/8 p-6 backdrop-blur">
-              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-amber-300">内容策略</p>
-              <h2 className="mb-3 text-2xl font-black text-white">职业 + 发言 + 刀点</h2>
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-amber-300">读站建议</p>
+              <h2 className="mb-3 text-2xl font-black text-white">职业 + 发言 + 地图一起看</h2>
               <p className="text-sm leading-7 text-slate-300">
-                每个角色都不止讲技能；每张地图都不止列任务；每篇攻略都最好能给出一句能直接带进会议的模板。
+                只看技能很难真正上分。更有效的方式，是把职业思路、会议发言和地图风险点放在一起理解。
               </p>
             </div>
           </div>
@@ -558,7 +558,7 @@ export default function HomePage() {
             }}
             className="rounded-[1.75rem] border border-emerald-400/15 bg-emerald-400/[0.07] p-6 text-left backdrop-blur transition hover:-translate-y-1 hover:bg-emerald-400/[0.11]"
           >
-            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-emerald-300">推荐攻略</p>
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-emerald-300">推荐阅读</p>
             <h3 className="mb-3 text-2xl font-black text-white">{featuredGuide.title}</h3>
             <p className="text-sm leading-7 text-slate-300">{featuredGuide.excerpt}</p>
           </button>
@@ -573,7 +573,7 @@ export default function HomePage() {
             }}
             className="rounded-[1.75rem] border border-cyan-400/15 bg-cyan-400/[0.07] p-6 text-left backdrop-blur transition hover:-translate-y-1 hover:bg-cyan-400/[0.11]"
           >
-            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-cyan-300">推荐地图</p>
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-cyan-300">推荐地图路线</p>
             <h3 className="mb-3 text-2xl font-black text-white">{featuredMap.name}</h3>
             <p className="text-sm leading-7 text-slate-300">{featuredMap.bestFor}</p>
           </button>
@@ -587,7 +587,7 @@ export default function HomePage() {
             }}
             className="rounded-[1.75rem] border border-fuchsia-400/15 bg-fuchsia-400/[0.07] p-6 text-left backdrop-blur transition hover:-translate-y-1 hover:bg-fuchsia-400/[0.11]"
           >
-            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-fuchsia-300">今日话题</p>
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-fuchsia-300">热门话题</p>
             <h3 className="mb-3 text-2xl font-black text-white">变形鸭为什么总能做假时间线？</h3>
             <p className="text-sm leading-7 text-slate-300">点开直接切到鸭阵营筛选，并把关键词聚焦到变形鸭。</p>
           </button>
@@ -595,16 +595,16 @@ export default function HomePage() {
 
         <section className="mb-10 grid gap-5 md:grid-cols-3">
           <div className="rounded-[1.75rem] border border-white/10 bg-slate-950/60 p-6">
-            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-sky-300">上线说明</p>
-            <h3 className="mb-4 text-2xl font-black text-white">当前内容定位</h3>
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-sky-300">站点介绍</p>
+            <h3 className="mb-4 text-2xl font-black text-white">先把常见问题看明白</h3>
             <p className="text-sm leading-7 text-slate-300">
-              这是一个面向公开展示的鹅鸭杀攻略站首页版本，重点不是堆功能，而是把职业、发言、地图和博弈内容做成清晰可消费的入口。
+              不管你是刚入门，还是已经开始打高压局，这里都优先整理玩家最常遇到的职业理解、发言误区和地图风险点。
             </p>
           </div>
 
           <div className="rounded-[1.75rem] border border-white/10 bg-slate-950/60 p-6">
-            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-yellow-300">版本说明</p>
-            <h3 className="mb-4 text-2xl font-black text-white">本次上线补了什么</h3>
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-yellow-300">本期整理重点</p>
+            <h3 className="mb-4 text-2xl font-black text-white">这次先把高频内容补齐</h3>
             <ul className="space-y-3 text-sm leading-7 text-slate-300">
               {releaseNotes.map((item) => (
                 <li key={item}>{item}</li>
@@ -613,10 +613,10 @@ export default function HomePage() {
           </div>
 
           <div className="rounded-[1.75rem] border border-white/10 bg-slate-950/60 p-6">
-            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-emerald-300">内容声明</p>
-            <h3 className="mb-4 text-2xl font-black text-white">使用前先知道</h3>
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-emerald-300">阅读提醒</p>
+            <h3 className="mb-4 text-2xl font-black text-white">攻略是帮你少走弯路</h3>
             <p className="text-sm leading-7 text-slate-300">
-              当前站内内容以攻略整理和玩法理解为主，不代表官方数值库；具体机制、平衡与版本细节，仍建议以游戏实际版本为准。
+              这里更偏实战理解和对局经验整理，适合上手、复盘和赛前速看；具体机制和平衡细节，仍以游戏当前版本表现为准。
             </p>
           </div>
         </section>
@@ -627,7 +627,7 @@ export default function HomePage() {
               <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-fuchsia-300">FAQ</p>
               <h2 className="text-3xl font-black text-white">常见问题</h2>
             </div>
-            <p className="text-sm text-slate-500">把第一次打开网站最容易问的问题先回答掉。</p>
+            <p className="text-sm text-slate-500">第一次看攻略站时最常见的几个疑问，这里先替你答了。</p>
           </div>
 
           <div className="grid gap-4 md:grid-cols-3">
@@ -642,8 +642,8 @@ export default function HomePage() {
 
         <section className="grid gap-5 lg:grid-cols-[0.92fr_1.08fr]">
           <div className="rounded-[1.75rem] border border-white/10 bg-slate-950/60 p-5 backdrop-blur-xl">
-            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-cyan-300">Live Preview</p>
-            <h2 className="mb-5 text-2xl font-black text-white">当前预览面板</h2>
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-cyan-300">内容预览</p>
+            <h2 className="mb-5 text-2xl font-black text-white">点开就能直接看重点</h2>
 
             {activeRole && <RolePanel role={activeRole} onClose={() => setActiveRole(null)} />}
             {activeGuide && <GuidePanel guide={activeGuide} onClose={() => setActiveGuide(null)} />}
@@ -651,31 +651,31 @@ export default function HomePage() {
 
             {!activeRole && !activeGuide && !activeMap && (
               <div className="rounded-[1.75rem] border border-dashed border-white/10 bg-white/[0.03] p-10 text-center text-sm leading-7 text-slate-400">
-                点左侧任意职业、攻略或地图卡片，这里会直接展开站内详情预览，方便快速比较职业强度、地图风险与发言思路。
+                点左侧任意职业、攻略或地图卡片，这里会直接展开重点内容，适合开局前快速扫一遍。
               </div>
             )}
           </div>
 
           <div className="grid gap-5 md:grid-cols-2">
             <div className="rounded-[1.75rem] border border-white/10 bg-slate-950/60 p-6">
-              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-emerald-300">为什么像成品</p>
-              <h3 className="mb-4 text-2xl font-black text-white">不是静态首页，而是内容控制台</h3>
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-emerald-300">怎么用更高效</p>
+              <h3 className="mb-4 text-2xl font-black text-white">先定位问题，再看对应内容</h3>
               <ul className="space-y-3 text-sm leading-7 text-slate-300">
-                <li>支持站内搜索，直接搜职业、发言、地图词。</li>
-                <li>支持阵营筛选，职业内容不再混在一起。</li>
-                <li>支持页内预览，不用每次跳详情页。</li>
-                <li>支持不同内容类型切换，产品层次更完整。</li>
+                <li>想查身份打法，先看职业库。</li>
+                <li>想提升会议表现，先看发言和进阶攻略。</li>
+                <li>想减少暴毙，优先补地图路线和危险区域。</li>
+                <li>开局前时间不多，就先看右侧内容预览。</li>
               </ul>
             </div>
 
             <div className="rounded-[1.75rem] border border-white/10 bg-slate-950/60 p-6">
-              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-fuchsia-300">下一步内容扩展</p>
-              <h3 className="mb-4 text-2xl font-black text-white">后面接内容会很顺</h3>
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-fuchsia-300">后续会补</p>
+              <h3 className="mb-4 text-2xl font-black text-white">还值得继续看的方向</h3>
               <ul className="space-y-3 text-sm leading-7 text-slate-300">
-                <li>职业可继续加强度评级、站位建议、假身份剧本。</li>
-                <li>攻略可继续加分类标签、收藏、相关推荐。</li>
-                <li>地图可继续加任务线示意和高危刀点热区。</li>
-                <li>后续切 MDX 或 CMS 时，当前结构也够用。</li>
+                <li>更多高出场职业的进阶打法和误区。</li>
+                <li>更多地图的路线拆解与常见甩锅点。</li>
+                <li>更多会议发言模板和残局投票思路。</li>
+                <li>更多适合新手快速理解的实战例子。</li>
               </ul>
             </div>
           </div>

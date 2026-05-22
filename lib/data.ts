@@ -109,7 +109,7 @@ export const roles: Role[] = [
   },
   {
     slug: 'detective',
-    name: '侦探',
+    name: '侦察员',
     team: '鹅阵营',
     difficulty: 3,
     description: '偏信息型神职，擅长拼接案发前后的行动链。',
@@ -121,7 +121,7 @@ export const roles: Role[] = [
   },
   {
     slug: 'assassin',
-    name: '刺客',
+    name: '刺杀者',
     team: '鸭阵营',
     difficulty: 5,
     description: '高压会议角色，往往不是靠刀，而是靠会里点名制造崩盘。',
@@ -241,7 +241,7 @@ export const maps: GameMap[] = [
   },
   {
     slug: 'basement-lab',
-    name: '地下实验室',
+    name: '地下室',
     description: '封闭房间多，信息常常被切断，非常考验会中复盘能力。',
     tasks: ['录入样本', '检查电路', '清理反应槽', '备份实验数据'],
     dangerZones: ['双门实验间', '监控外走廊', '冷藏区入口'],
@@ -249,7 +249,7 @@ export const maps: GameMap[] = [
   },
   {
     slug: 'snow-cabin',
-    name: '雪地小屋',
+    name: '雪地小屋地图',
     description: '视野开阔但转点距离长，适合做时间线文章，也适合靠落单抓机会。',
     tasks: ['修理暖炉', '补充燃料', '检查信号塔', '整理仓库'],
     dangerZones: ['信号塔外侧', '仓库后门', '长雪道中段'],
