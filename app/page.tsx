@@ -20,6 +20,8 @@ const highlights = [
   '站内直接预览发言模板与风险点',
 ];
 
+const trendingKeywords = ['忍者怎么玩', '警长误刀', '黑天鹅刀点', '变形鸭发言', '加拿大鹅诱刀'];
+
 const tabs = [
   { key: 'roles', label: '职业库' },
   { key: 'guides', label: '攻略库' },
@@ -193,6 +195,10 @@ export default function HomePage() {
   const [activeMap, setActiveMap] = useState<GameMap | null>(null);
   const [activeGuide, setActiveGuide] = useState<Guide | null>(null);
 
+  const featuredRole = roles[3];
+  const featuredGuide = guides[0];
+  const featuredMap = maps[1];
+
   const filteredRoles = useMemo(() => {
     return roles.filter((role) => {
       const matchesTeam = teamFilter === '全部' || role.team === teamFilter;
@@ -269,6 +275,93 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+
+        <section className="mb-10 grid gap-5 xl:grid-cols-[1fr_0.72fr]">
+          <div className="rounded-[1.8rem] border border-yellow-300/15 bg-yellow-400/[0.06] p-6 backdrop-blur-xl">
+            <div className="mb-4 flex items-center justify-between gap-4">
+              <div>
+                <p className="mb-2 text-xs font-semibold uppercase tracking-[0.28em] text-yellow-300">今日强推</p>
+                <h2 className="text-3xl font-black text-white">{featuredRole.name}：{featuredRole.badge}</h2>
+              </div>
+              <button
+                type="button"
+                onClick={() => {
+                  setTab('roles');
+                  setActiveRole(featuredRole);
+                  setActiveGuide(null);
+                  setActiveMap(null);
+                }}
+                className="rounded-full bg-yellow-300 px-4 py-2 text-sm font-bold text-slate-950 transition hover:bg-yellow-200"
+              >
+                立即查看
+              </button>
+            </div>
+            <p className="mb-5 max-w-3xl text-sm leading-7 text-slate-200">{featuredRole.playstyle}</p>
+            <div className="grid gap-4 md:grid-cols-3">
+              <div className="rounded-[1.3rem] border border-white/10 bg-black/20 p-4">
+                <div className="mb-2 text-xs uppercase tracking-[0.24em] text-slate-500">发言亮点</div>
+                <p className="text-sm text-slate-100">“{featuredRole.speech}”</p>
+              </div>
+              <div className="rounded-[1.3rem] border border-white/10 bg-black/20 p-4">
+                <div className="mb-2 text-xs uppercase tracking-[0.24em] text-slate-500">风险提醒</div>
+                <p className="text-sm text-slate-100">{featuredRole.counter}</p>
+              </div>
+              <div className="rounded-[1.3rem] border border-white/10 bg-black/20 p-4">
+                <div className="mb-2 text-xs uppercase tracking-[0.24em] text-slate-500">适合人群</div>
+                <p className="text-sm text-slate-100">想带节奏、敢拍板、能承压的玩家。</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid gap-5">
+            <div className="rounded-[1.8rem] border border-cyan-400/15 bg-cyan-400/[0.06] p-6 backdrop-blur-xl">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.28em] text-cyan-300">热门搜索</p>
+              <div className="flex flex-wrap gap-2">
+                {trendingKeywords.map((keyword) => (
+                  <button
+                    key={keyword}
+                    type="button"
+                    onClick={() => setQuery(keyword)}
+                    className="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-sm text-slate-200 transition hover:bg-white/10 hover:text-white"
+                  >
+                    {keyword}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="rounded-[1.8rem] border border-fuchsia-400/15 bg-fuchsia-400/[0.06] p-6 backdrop-blur-xl">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.28em] text-fuchsia-300">内容热榜</p>
+              <div className="space-y-3">
+                {[
+                  { label: 'TOP 1', title: featuredGuide.title, action: () => {
+                    setTab('guides');
+                    setActiveGuide(featuredGuide);
+                    setActiveRole(null);
+                    setActiveMap(null);
+                  } },
+                  { label: 'TOP 2', title: featuredMap.name, action: () => {
+                    setTab('maps');
+                    setActiveMap(featuredMap);
+                    setActiveRole(null);
+                    setActiveGuide(null);
+                  } },
+                  { label: 'TOP 3', title: '警长误刀为什么最伤节奏', action: () => setQuery('警长') },
+                ].map((item) => (
+                  <button
+                    key={item.label}
+                    type="button"
+                    onClick={item.action}
+                    className="flex w-full items-center justify-between rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-left transition hover:bg-white/10"
+                  >
+                    <span className="text-xs font-bold uppercase tracking-[0.24em] text-fuchsia-300">{item.label}</span>
+                    <span className="text-sm text-slate-100">{item.title}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
 
         <section className="mb-10 grid gap-5 lg:grid-cols-[1.2fr_0.8fr]">
           <div className="rounded-[1.75rem] border border-white/10 bg-slate-950/65 p-5 backdrop-blur-xl">
@@ -413,6 +506,52 @@ export default function HomePage() {
               </p>
             </div>
           </div>
+        </section>
+
+        <section className="mb-10 grid gap-5 md:grid-cols-3">
+          <button
+            type="button"
+            onClick={() => {
+              setTab('guides');
+              setActiveGuide(featuredGuide);
+              setActiveRole(null);
+              setActiveMap(null);
+            }}
+            className="rounded-[1.75rem] border border-emerald-400/15 bg-emerald-400/[0.07] p-6 text-left backdrop-blur transition hover:-translate-y-1 hover:bg-emerald-400/[0.11]"
+          >
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.26em] text-emerald-300">推荐攻略</p>
+            <h3 className="mb-3 text-2xl font-black text-white">{featuredGuide.title}</h3>
+            <p className="text-sm leading-7 text-slate-300">{featuredGuide.excerpt}</p>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => {
+              setTab('maps');
+              setActiveMap(featuredMap);
+              setActiveRole(null);
+              setActiveGuide(null);
+            }}
+            className="rounded-[1.75rem] border border-cyan-400/15 bg-cyan-400/[0.07] p-6 text-left backdrop-blur transition hover:-translate-y-1 hover:bg-cyan-400/[0.11]"
+          >
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.26em] text-cyan-300">推荐地图</p>
+            <h3 className="mb-3 text-2xl font-black text-white">{featuredMap.name}</h3>
+            <p className="text-sm leading-7 text-slate-300">{featuredMap.bestFor}</p>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => {
+              setTab('roles');
+              setTeamFilter('鸭阵营');
+              setQuery('变形');
+            }}
+            className="rounded-[1.75rem] border border-fuchsia-400/15 bg-fuchsia-400/[0.07] p-6 text-left backdrop-blur transition hover:-translate-y-1 hover:bg-fuchsia-400/[0.11]"
+          >
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.26em] text-fuchsia-300">今日话题</p>
+            <h3 className="mb-3 text-2xl font-black text-white">变形鸭为什么总能做假时间线？</h3>
+            <p className="text-sm leading-7 text-slate-300">点开直接切到鸭阵营筛选，并把关键词聚焦到变形鸭。</p>
+          </button>
         </section>
 
         <section className="grid gap-5 lg:grid-cols-[0.92fr_1.08fr]">
