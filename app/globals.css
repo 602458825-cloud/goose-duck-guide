@@ -73,10 +73,19 @@ button {
 .glow-ring {
   box-shadow:
     0 0 0 1px rgba(255, 255, 255, 0.04),
-    0 24px 80px rgba(2, 6, 23, 0.5),
+    0 18px 50px rgba(2, 6, 23, 0.34),
+    0 32px 100px rgba(2, 6, 23, 0.18),
     inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .hero-chip {
   backdrop-filter: blur(12px);
+}
+
+.soft-panel {
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.72), rgba(2, 6, 23, 0.78));
+}
+
+.section-kicker {
+  letter-spacing: 0.22em;
 }

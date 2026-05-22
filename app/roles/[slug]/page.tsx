@@ -88,6 +88,21 @@ export default async function RolePage({
             </div>
           </section>
         </div>
+
+        <div className="mt-6 grid gap-4 md:grid-cols-2">
+          <div className="rounded-[1.4rem] border border-white/10 bg-slate-950/60 p-5">
+            <h3 className="mb-3 text-lg font-black text-white">阅读提示</h3>
+            <p className="text-sm leading-7 text-slate-300">
+              本页内容以公开玩法理解和实战经验整理为主，适合入门、复盘和内容扩写，不视作官方机制原文。
+            </p>
+          </div>
+          <div className="rounded-[1.4rem] border border-white/10 bg-slate-950/60 p-5">
+            <h3 className="mb-3 text-lg font-black text-white">推荐继续看</h3>
+            <p className="text-sm leading-7 text-slate-300">
+              建议结合地图路线、会议发言节奏和对应克制身份一起看，职业理解会更完整。
+            </p>
+          </div>
+        </div>
       </section>
     </main>
   );

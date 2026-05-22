@@ -265,20 +265,20 @@ export default function HomePage() {
       <Header />
 
       <section className="mx-auto max-w-6xl px-4 pb-16 pt-10 md:pb-24 md:pt-16">
-        <div className="glow-ring relative mb-10 overflow-hidden rounded-[2rem] border border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(250,204,21,0.18),transparent_24%),radial-gradient(circle_at_78%_18%,rgba(34,211,238,0.16),transparent_20%),linear-gradient(135deg,rgba(15,23,42,0.92),rgba(2,6,23,0.95))] px-5 py-8 md:px-10 md:py-12">
-          <div className="hero-chip mb-6 inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-yellow-300">
+        <div className="glow-ring relative mb-10 overflow-hidden rounded-[2rem] border border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(250,204,21,0.18),transparent_24%),radial-gradient(circle_at_78%_18%,rgba(34,211,238,0.16),transparent_20%),linear-gradient(135deg,rgba(15,23,42,0.92),rgba(2,6,23,0.95))] px-5 py-9 md:px-10 md:py-14">
+          <div className="hero-chip section-kicker mb-6 inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold uppercase text-yellow-300">
             Interactive Mobile Guide
           </div>
 
           <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
             <div>
-              <h1 className="mb-5 max-w-4xl text-3xl font-black leading-tight tracking-tight text-white md:text-6xl">
+              <h1 className="mb-5 max-w-4xl text-3xl font-black leading-[1.08] tracking-tight text-white md:text-6xl">
                 不只是卡片墙，
                 <span className="text-yellow-300">直接做成能查、能筛、能预览</span>
                 的鹅鸭杀内容站。
               </h1>
               <p className="max-w-2xl text-sm leading-8 text-slate-300 md:text-lg">
-                现在首页就能直接搜索职业、切阵营、看发言模板、展开地图刀点和攻略快读，并且把首页做成接近正式运营站的内容入口。
+                现在首页就能直接搜索职业、切阵营、看发言模板、展开地图刀点和攻略快读，形成适合公开访问的内容入口。
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
@@ -403,7 +403,7 @@ export default function HomePage() {
         </section>
 
         <section className="mb-10 grid gap-5 lg:grid-cols-[1.2fr_0.8fr]">
-          <div className="rounded-[1.75rem] border border-white/10 bg-slate-950/65 p-5 backdrop-blur-xl">
+          <div className="soft-panel rounded-[1.75rem] border border-white/10 p-5 backdrop-blur-xl">
             <div className="mb-4 flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
               <div>
                 <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-yellow-300">Control Center</p>
@@ -651,7 +651,7 @@ export default function HomePage() {
 
             {!activeRole && !activeGuide && !activeMap && (
               <div className="rounded-[1.75rem] border border-dashed border-white/10 bg-white/[0.03] p-10 text-center text-sm leading-7 text-slate-400">
-                点左侧任意职业、攻略或地图卡片，这里会直接展开站内详情预览。当前这版已经按上线展示站的密度在补文案和信息层次。
+                点左侧任意职业、攻略或地图卡片，这里会直接展开站内详情预览，方便快速比较职业强度、地图风险与发言思路。
               </div>
             )}
           </div>

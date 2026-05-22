@@ -60,8 +60,8 @@ export default function RoleCard({ role }: { role: Role }) {
           <span className="text-[11px] uppercase tracking-[0.24em] text-slate-500">Role Card</span>
         </div>
 
-        <h2 className={`mb-2 text-2xl font-black md:text-3xl ${style.label}`}>{role.name}</h2>
-        <p className="mb-5 min-h-[3.5rem] text-sm leading-7 text-slate-300">{role.description}</p>
+        <h2 className={`mb-2 text-2xl font-black leading-tight md:text-3xl ${style.label}`}>{role.name}</h2>
+        <p className="mb-5 min-h-[4rem] text-sm leading-7 text-slate-300">{role.description}</p>
 
         <div className="mb-5 rounded-[1.25rem] border border-white/8 bg-black/20 p-4 backdrop-blur-sm">
           <div className="mb-2 flex items-center justify-between text-xs uppercase tracking-[0.2em] text-slate-500">
@@ -94,7 +94,7 @@ export default function RoleCard({ role }: { role: Role }) {
           </div>
         </div>
 
-        <div className="rounded-[1.25rem] border border-white/8 bg-slate-900/70 p-4">
+        <div className="rounded-[1.25rem] border border-white/8 bg-slate-900/70 p-4 shadow-inner shadow-black/10">
           <div className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
             发言模板
           </div>

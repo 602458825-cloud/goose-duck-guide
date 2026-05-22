@@ -2,8 +2,9 @@ import Link from 'next/link';
 
 const navItems = [
   { href: '/', label: '首页' },
-  { href: '/guides/beginner-guide', label: '新手攻略' },
-  { href: '/roles/pelican', label: '热门职业' },
+  { href: '/guides/beginner-guide', label: '新手入门' },
+  { href: '/roles/sheriff', label: '职业推荐' },
+  { href: '/maps/space-station', label: '地图路线' },
 ];
 
 export default function Header() {

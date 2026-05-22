@@ -74,6 +74,13 @@ export default async function MapPage({
             </div>
           </section>
         </div>
+
+        <div className="mt-6 rounded-[1.4rem] border border-white/10 bg-slate-950/60 p-5">
+          <h3 className="mb-3 text-lg font-black text-white">地图阅读建议</h3>
+          <p className="text-sm leading-7 text-slate-300">
+            真正要读懂一张地图，不只是记任务点，还要记转角、视野断层、长走廊和会议前后最容易出锅的位置。
+          </p>
+        </div>
       </section>
     </main>
   );
