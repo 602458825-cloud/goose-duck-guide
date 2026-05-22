@@ -15,7 +15,18 @@ export default function MapCard({ map }: { map: GameMap }) {
         <h2 className="mb-3 text-2xl font-black text-cyan-300 transition group-hover:text-cyan-200">
           {map.name}
         </h2>
-        <p className="text-sm leading-7 text-slate-300">{map.description}</p>
+        <p className="mb-4 text-sm leading-7 text-slate-300">{map.description}</p>
+
+        <div className="flex flex-wrap gap-2">
+          {map.dangerZones.slice(0, 2).map((zone) => (
+            <span
+              key={zone}
+              className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-slate-200"
+            >
+              {zone}
+            </span>
+          ))}
+        </div>
       </article>
     </Link>
   );
