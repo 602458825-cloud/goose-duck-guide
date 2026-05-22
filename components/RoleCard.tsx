@@ -1,24 +1,108 @@
 import Link from 'next/link';
-import type { Role } from '@/lib/data';
+import type { Role, Team } from '@/lib/data';
+
+const teamStyles: Record<
+  Team,
+  {
+    chip: string;
+    glow: string;
+    frame: string;
+    accent: string;
+    label: string;
+    icon: string;
+  }
+> = {
+  鹅阵营: {
+    chip: 'border-cyan-300/30 bg-cyan-400/12 text-cyan-200',
+    glow: 'from-cyan-400/18 via-sky-400/10 to-transparent',
+    frame: 'hover:border-cyan-300/45',
+    accent: 'bg-cyan-300',
+    label: 'text-cyan-200',
+    icon: '鹅',
+  },
+  鸭阵营: {
+    chip: 'border-rose-300/30 bg-rose-400/12 text-rose-200',
+    glow: 'from-rose-400/18 via-orange-400/10 to-transparent',
+    frame: 'hover:border-rose-300/45',
+    accent: 'bg-rose-300',
+    label: 'text-rose-200',
+    icon: '鸭',
+  },
+  中立: {
+    chip: 'border-amber-300/30 bg-amber-400/12 text-amber-100',
+    glow: 'from-amber-300/20 via-yellow-300/10 to-transparent',
+    frame: 'hover:border-amber-300/45',
+    accent: 'bg-amber-200',
+    label: 'text-amber-100',
+    icon: '中',
+  },
+};
 
 export default function RoleCard({ role }: { role: Role }) {
+  const style = teamStyles[role.team];
+  const difficultyBars = Array.from({ length: 5 }, (_, index) => index < role.difficulty);
+
   return (
     <Link href={`/roles/${role.slug}`} className="group block h-full">
-      <article className="glow-ring h-full rounded-[1.75rem] border border-yellow-400/15 bg-slate-950/70 p-6 transition duration-300 hover:-translate-y-1.5 hover:border-yellow-300/40 hover:bg-slate-900/95">
-        <div className="mb-4 flex items-center justify-between gap-3">
-          <span className="rounded-full border border-yellow-400/20 bg-yellow-400/10 px-3 py-1 text-xs font-semibold tracking-[0.18em] text-yellow-300">
-            ROLE
-          </span>
-          <span className="rounded-full bg-white/5 px-3 py-1 text-xs text-slate-300">
-            难度 {role.difficulty}
-          </span>
+      <article
+        className={`glow-ring relative h-full overflow-hidden rounded-[1.9rem] border border-white/10 bg-slate-950/80 p-6 transition duration-300 hover:-translate-y-1.5 ${style.frame}`}
+      >
+        <div className={`absolute inset-x-0 top-0 h-28 bg-gradient-to-br ${style.glow}`} />
+        <div className="absolute right-5 top-5 flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-lg font-black text-white/85 shadow-lg shadow-slate-950/30">
+          {style.icon}
         </div>
 
-        <h2 className="mb-2 text-2xl font-black text-yellow-300 transition group-hover:text-yellow-200">
-          {role.name}
-        </h2>
-        <p className="mb-4 text-sm text-slate-400">{role.team}</p>
-        <p className="text-sm leading-7 text-slate-300">{role.description}</p>
+        <div className="relative z-10">
+          <div className="mb-5 flex items-center justify-between gap-3 pr-16">
+            <span
+              className={`rounded-full border px-3 py-1 text-xs font-semibold tracking-[0.22em] ${style.chip}`}
+            >
+              {role.team}
+            </span>
+            <span className="text-xs uppercase tracking-[0.28em] text-slate-500">Role Card</span>
+          </div>
+
+          <h2 className={`mb-2 text-3xl font-black ${style.label}`}>{role.name}</h2>
+          <p className="mb-5 min-h-[3.5rem] text-sm leading-7 text-slate-300">{role.description}</p>
+
+          <div className="mb-5 rounded-[1.25rem] border border-white/8 bg-black/20 p-4 backdrop-blur-sm">
+            <div className="mb-2 flex items-center justify-between text-xs uppercase tracking-[0.24em] text-slate-500">
+              <span>上手难度</span>
+              <span>{role.difficulty}/5</span>
+            </div>
+            <div className="flex gap-2">
+              {difficultyBars.map((active, index) => (
+                <span
+                  key={`${role.slug}-difficulty-${index + 1}`}
+                  className={`h-2 flex-1 rounded-full ${active ? style.accent : 'bg-white/8'}`}
+                />
+              ))}
+            </div>
+          </div>
+
+          <div className="mb-5 rounded-[1.25rem] border border-white/8 bg-white/[0.03] p-4">
+            <div className="mb-3 text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">
+              对局关键词
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {role.tips.slice(0, 2).map((tip) => (
+                <span
+                  key={tip}
+                  className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-slate-200"
+                >
+                  {tip}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="rounded-[1.25rem] border border-white/8 bg-slate-900/70 p-4">
+            <div className="mb-2 text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">
+              发言模板
+            </div>
+            <p className="line-clamp-2 text-sm leading-6 text-slate-200">“{role.speech}”</p>
+          </div>
+        </div>
       </article>
     </Link>
   );

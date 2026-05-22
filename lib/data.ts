@@ -1,7 +1,9 @@
+export type Team = '鹅阵营' | '鸭阵营' | '中立';
+
 export type Role = {
   slug: string;
   name: string;
-  team: string;
+  team: Team;
   difficulty: number;
   description: string;
   tips: string[];
