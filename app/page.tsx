@@ -9,9 +9,9 @@ import type { GameMap, Guide, Role, Team } from '@/lib/data';
 import { guides, maps, roles } from '@/lib/data';
 
 const stats = [
-  { label: '职业池', value: '18+' },
-  { label: '发言套路', value: '60+' },
-  { label: '地图刀点', value: '24+' },
+  { label: '职业池', value: '30+' },
+  { label: '发言套路', value: '120+' },
+  { label: '地图刀点', value: '48+' },
 ];
 
 const highlights = [
@@ -20,13 +20,44 @@ const highlights = [
   '站内直接预览发言模板与风险点',
 ];
 
-const trendingKeywords = ['忍者怎么玩', '警长误刀', '黑天鹅刀点', '变形鸭发言', '加拿大鹅诱刀'];
+const trendingKeywords = [
+  '忍者怎么玩',
+  '警长误刀',
+  '黑天鹅刀点',
+  '变形鸭发言',
+  '加拿大鹅诱刀',
+  '鹈鹕怎么控节奏',
+  '刺客会里怎么点身份',
+  '渡渡鸟怎么骗票',
+];
 
 const tabs = [
   { key: 'roles', label: '职业库' },
   { key: 'guides', label: '攻略库' },
   { key: 'maps', label: '地图库' },
 ] as const;
+
+const faqItems = [
+  {
+    question: '这个站现在适合拿来做什么？',
+    answer: '适合查职业思路、会议发言模板、地图危险点和新手入门逻辑，定位是高信息密度的内容站。',
+  },
+  {
+    question: '这里的内容是官方数据库吗？',
+    answer: '不是官方数据库，而是基于公开玩法理解整理的攻略型内容，适合上手、复盘和内容扩展。',
+  },
+  {
+    question: '后面最值得补的内容是什么？',
+    answer: '最值得补的是职业进阶对局、地图刀点复盘、发言心理博弈和残局投票逻辑。',
+  },
+];
+
+const releaseNotes = [
+  '上线版首页支持职业、攻略、地图三类内容切换。',
+  '职业页补充了定位、克制点、实战建议和发言模板。',
+  '地图页补充了任务路线、危险刀点和适合打法。',
+  '攻略页补充了速记标签，适合直接做内容扩写。',
+];
 
 type TabKey = (typeof tabs)[number]['key'];
 
@@ -247,7 +278,7 @@ export default function HomePage() {
                 的鹅鸭杀内容站。
               </h1>
               <p className="max-w-2xl text-sm leading-8 text-slate-300 md:text-lg">
-                现在首页就能直接搜索职业、切阵营、看发言模板、展开地图刀点和攻略快读，先把内容产品感做出来。
+                现在首页就能直接搜索职业、切阵营、看发言模板、展开地图刀点和攻略快读，并且把首页做成接近正式运营站的内容入口。
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
@@ -562,6 +593,53 @@ export default function HomePage() {
           </button>
         </section>
 
+        <section className="mb-10 grid gap-5 md:grid-cols-3">
+          <div className="rounded-[1.75rem] border border-white/10 bg-slate-950/60 p-6">
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-sky-300">上线说明</p>
+            <h3 className="mb-4 text-2xl font-black text-white">当前内容定位</h3>
+            <p className="text-sm leading-7 text-slate-300">
+              这是一个面向公开展示的鹅鸭杀攻略站首页版本，重点不是堆功能，而是把职业、发言、地图和博弈内容做成清晰可消费的入口。
+            </p>
+          </div>
+
+          <div className="rounded-[1.75rem] border border-white/10 bg-slate-950/60 p-6">
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-yellow-300">版本说明</p>
+            <h3 className="mb-4 text-2xl font-black text-white">本次上线补了什么</h3>
+            <ul className="space-y-3 text-sm leading-7 text-slate-300">
+              {releaseNotes.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="rounded-[1.75rem] border border-white/10 bg-slate-950/60 p-6">
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-emerald-300">内容声明</p>
+            <h3 className="mb-4 text-2xl font-black text-white">使用前先知道</h3>
+            <p className="text-sm leading-7 text-slate-300">
+              当前站内内容以攻略整理和玩法理解为主，不代表官方数值库；具体机制、平衡与版本细节，仍建议以游戏实际版本为准。
+            </p>
+          </div>
+        </section>
+
+        <section className="mb-10 rounded-[1.8rem] border border-white/10 bg-slate-950/60 p-6 backdrop-blur-xl">
+          <div className="mb-5 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-fuchsia-300">FAQ</p>
+              <h2 className="text-3xl font-black text-white">常见问题</h2>
+            </div>
+            <p className="text-sm text-slate-500">把第一次打开网站最容易问的问题先回答掉。</p>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-3">
+            {faqItems.map((item) => (
+              <div key={item.question} className="rounded-[1.4rem] border border-white/10 bg-white/[0.03] p-5">
+                <h3 className="mb-3 text-lg font-black text-white">{item.question}</h3>
+                <p className="text-sm leading-7 text-slate-300">{item.answer}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
         <section className="grid gap-5 lg:grid-cols-[0.92fr_1.08fr]">
           <div className="rounded-[1.75rem] border border-white/10 bg-slate-950/60 p-5 backdrop-blur-xl">
             <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-cyan-300">Live Preview</p>
@@ -573,7 +651,7 @@ export default function HomePage() {
 
             {!activeRole && !activeGuide && !activeMap && (
               <div className="rounded-[1.75rem] border border-dashed border-white/10 bg-white/[0.03] p-10 text-center text-sm leading-7 text-slate-400">
-                点左侧任意职业、攻略或地图卡片，这里会直接展开站内详情预览。
+                点左侧任意职业、攻略或地图卡片，这里会直接展开站内详情预览。当前这版已经按上线展示站的密度在补文案和信息层次。
               </div>
             )}
           </div>

@@ -1,5 +1,8 @@
 export type Team = '鹅阵营' | '鸭阵营' | '中立';
 
+// Launch content set for the public MVP build.
+// Content is written for a public-facing launch version and should be treated as guide content, not an official game database.
+
 export type Role = {
   slug: string;
   name: string;
@@ -243,5 +246,13 @@ export const maps: GameMap[] = [
     tasks: ['录入样本', '检查电路', '清理反应槽', '备份实验数据'],
     dangerZones: ['双门实验间', '监控外走廊', '冷藏区入口'],
     bestFor: '高压力残局和喜欢做封闭空间博弈的玩家',
+  },
+  {
+    slug: 'snow-cabin',
+    name: '雪地小屋',
+    description: '视野开阔但转点距离长，适合做时间线文章，也适合靠落单抓机会。',
+    tasks: ['修理暖炉', '补充燃料', '检查信号塔', '整理仓库'],
+    dangerZones: ['信号塔外侧', '仓库后门', '长雪道中段'],
+    bestFor: '喜欢做路线推理和远距离观察的玩家',
   },
 ];

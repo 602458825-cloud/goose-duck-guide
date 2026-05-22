@@ -40,6 +40,7 @@ export default async function RolePage({
       <Header />
 
       <section className="mx-auto max-w-5xl px-4 py-14 md:py-20">
+        {/* Public launch version: richer role detail layout for live site content. */}
         <div className="mb-8 rounded-[2rem] border border-white/10 bg-slate-950/80 p-8 shadow-2xl shadow-slate-950/40">
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-yellow-300">{role.team}</p>
           <h1 className="mb-4 text-4xl font-black text-white md:text-5xl">{role.name}</h1>
