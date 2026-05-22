@@ -40,6 +40,15 @@ a {
   text-decoration: none;
 }
 
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
 ::selection {
   background: rgba(250, 204, 21, 0.28);
   color: #fff;

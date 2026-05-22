@@ -47,13 +47,13 @@ type GuidePanelProps = {
 
 function RolePanel({ role, onClose }: RolePanelProps) {
   return (
-    <div className="rounded-[2rem] border border-white/10 bg-slate-950/95 p-6 shadow-2xl shadow-slate-950/50 backdrop-blur-xl md:p-7">
-      <div className="mb-5 flex items-start justify-between gap-4">
+    <div className="rounded-[2rem] border border-white/10 bg-slate-950/95 p-5 shadow-2xl shadow-slate-950/50 backdrop-blur-xl md:p-7">
+      <div className="mb-5 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.28em] text-yellow-300">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.24em] text-yellow-300">
             {role.team}
           </p>
-          <h3 className="text-3xl font-black text-white">{role.name}</h3>
+          <h3 className="text-2xl font-black text-white md:text-3xl">{role.name}</h3>
           <p className="mt-2 text-sm text-slate-400">{role.badge}</p>
         </div>
         <button
@@ -69,17 +69,17 @@ function RolePanel({ role, onClose }: RolePanelProps) {
 
       <div className="mb-6 grid gap-4 md:grid-cols-2">
         <div className="rounded-[1.4rem] border border-cyan-400/15 bg-cyan-400/8 p-4">
-          <div className="mb-2 text-xs font-semibold uppercase tracking-[0.24em] text-cyan-300">打法定位</div>
+          <div className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">打法定位</div>
           <p className="text-sm leading-7 text-slate-200">{role.playstyle}</p>
         </div>
         <div className="rounded-[1.4rem] border border-rose-400/15 bg-rose-400/8 p-4">
-          <div className="mb-2 text-xs font-semibold uppercase tracking-[0.24em] text-rose-300">克制与风险</div>
+          <div className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-rose-300">克制与风险</div>
           <p className="text-sm leading-7 text-slate-200">{role.counter}</p>
         </div>
       </div>
 
       <div className="mb-6 rounded-[1.4rem] border border-white/10 bg-white/[0.03] p-4">
-        <div className="mb-3 text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">关键技巧</div>
+        <div className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">关键技巧</div>
         <div className="flex flex-wrap gap-2">
           {role.tips.map((tip) => (
             <span
@@ -93,7 +93,7 @@ function RolePanel({ role, onClose }: RolePanelProps) {
       </div>
 
       <div className="rounded-[1.4rem] border border-yellow-400/15 bg-yellow-400/8 p-4">
-        <div className="mb-2 text-xs font-semibold uppercase tracking-[0.24em] text-yellow-200">会议发言模板</div>
+        <div className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-yellow-200">会议发言模板</div>
         <p className="text-sm leading-7 text-slate-100">“{role.speech}”</p>
       </div>
     </div>
@@ -102,11 +102,11 @@ function RolePanel({ role, onClose }: RolePanelProps) {
 
 function MapPanel({ map, onClose }: MapPanelProps) {
   return (
-    <div className="rounded-[2rem] border border-white/10 bg-slate-950/95 p-6 shadow-2xl shadow-slate-950/50 backdrop-blur-xl md:p-7">
-      <div className="mb-5 flex items-start justify-between gap-4">
+    <div className="rounded-[2rem] border border-white/10 bg-slate-950/95 p-5 shadow-2xl shadow-slate-950/50 backdrop-blur-xl md:p-7">
+      <div className="mb-5 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.28em] text-cyan-300">地图解析</p>
-          <h3 className="text-3xl font-black text-white">{map.name}</h3>
+          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.24em] text-cyan-300">地图解析</p>
+          <h3 className="text-2xl font-black text-white md:text-3xl">{map.name}</h3>
         </div>
         <button
           type="button"
@@ -120,13 +120,13 @@ function MapPanel({ map, onClose }: MapPanelProps) {
       <p className="mb-6 text-sm leading-7 text-slate-300">{map.description}</p>
 
       <div className="mb-6 rounded-[1.4rem] border border-cyan-400/15 bg-cyan-400/8 p-4">
-        <div className="mb-2 text-xs font-semibold uppercase tracking-[0.24em] text-cyan-300">适合什么局</div>
+        <div className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">适合什么局</div>
         <p className="text-sm leading-7 text-slate-100">{map.bestFor}</p>
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">
         <div className="rounded-[1.4rem] border border-white/10 bg-white/[0.03] p-4">
-          <div className="mb-3 text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">任务路线</div>
+          <div className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">任务路线</div>
           <div className="space-y-2">
             {map.tasks.map((task) => (
               <div key={task} className="rounded-xl border border-white/8 bg-black/20 px-3 py-2 text-sm text-slate-200">
@@ -136,7 +136,7 @@ function MapPanel({ map, onClose }: MapPanelProps) {
           </div>
         </div>
         <div className="rounded-[1.4rem] border border-rose-400/15 bg-rose-400/8 p-4">
-          <div className="mb-3 text-xs font-semibold uppercase tracking-[0.24em] text-rose-300">危险刀点</div>
+          <div className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-rose-300">危险刀点</div>
           <div className="space-y-2">
             {map.dangerZones.map((zone) => (
               <div key={zone} className="rounded-xl border border-white/8 bg-black/20 px-3 py-2 text-sm text-slate-100">
@@ -152,11 +152,11 @@ function MapPanel({ map, onClose }: MapPanelProps) {
 
 function GuidePanel({ guide, onClose }: GuidePanelProps) {
   return (
-    <div className="rounded-[2rem] border border-white/10 bg-slate-950/95 p-6 shadow-2xl shadow-slate-950/50 backdrop-blur-xl md:p-7">
-      <div className="mb-5 flex items-start justify-between gap-4">
+    <div className="rounded-[2rem] border border-white/10 bg-slate-950/95 p-5 shadow-2xl shadow-slate-950/50 backdrop-blur-xl md:p-7">
+      <div className="mb-5 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.28em] text-emerald-300">{guide.category}</p>
-          <h3 className="text-3xl font-black text-white">{guide.title}</h3>
+          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.24em] text-emerald-300">{guide.category}</p>
+          <h3 className="text-2xl font-black text-white md:text-3xl">{guide.title}</h3>
         </div>
         <button
           type="button"
@@ -234,19 +234,19 @@ export default function HomePage() {
       <Header />
 
       <section className="mx-auto max-w-6xl px-4 pb-16 pt-10 md:pb-24 md:pt-16">
-        <div className="glow-ring relative mb-10 overflow-hidden rounded-[2rem] border border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(250,204,21,0.18),transparent_24%),radial-gradient(circle_at_78%_18%,rgba(34,211,238,0.16),transparent_20%),linear-gradient(135deg,rgba(15,23,42,0.92),rgba(2,6,23,0.95))] px-6 py-8 md:px-10 md:py-12">
-          <div className="hero-chip mb-6 inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-yellow-300">
+        <div className="glow-ring relative mb-10 overflow-hidden rounded-[2rem] border border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(250,204,21,0.18),transparent_24%),radial-gradient(circle_at_78%_18%,rgba(34,211,238,0.16),transparent_20%),linear-gradient(135deg,rgba(15,23,42,0.92),rgba(2,6,23,0.95))] px-5 py-8 md:px-10 md:py-12">
+          <div className="hero-chip mb-6 inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-yellow-300">
             Interactive Mobile Guide
           </div>
 
-          <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
+          <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
             <div>
-              <h1 className="mb-5 max-w-4xl text-4xl font-black leading-tight tracking-tight text-white md:text-6xl">
+              <h1 className="mb-5 max-w-4xl text-3xl font-black leading-tight tracking-tight text-white md:text-6xl">
                 不只是卡片墙，
                 <span className="text-yellow-300">直接做成能查、能筛、能预览</span>
                 的鹅鸭杀内容站。
               </h1>
-              <p className="max-w-2xl text-base leading-8 text-slate-300 md:text-lg">
+              <p className="max-w-2xl text-sm leading-8 text-slate-300 md:text-lg">
                 现在首页就能直接搜索职业、切阵营、看发言模板、展开地图刀点和攻略快读，先把内容产品感做出来。
               </p>
 
@@ -277,11 +277,11 @@ export default function HomePage() {
         </div>
 
         <section className="mb-10 grid gap-5 xl:grid-cols-[1fr_0.72fr]">
-          <div className="rounded-[1.8rem] border border-yellow-300/15 bg-yellow-400/[0.06] p-6 backdrop-blur-xl">
-            <div className="mb-4 flex items-center justify-between gap-4">
+          <div className="rounded-[1.8rem] border border-yellow-300/15 bg-yellow-400/[0.06] p-5 backdrop-blur-xl md:p-6">
+            <div className="mb-4 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <p className="mb-2 text-xs font-semibold uppercase tracking-[0.28em] text-yellow-300">今日强推</p>
-                <h2 className="text-3xl font-black text-white">{featuredRole.name}：{featuredRole.badge}</h2>
+                <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-yellow-300">今日强推</p>
+                <h2 className="text-2xl font-black text-white md:text-3xl">{featuredRole.name}：{featuredRole.badge}</h2>
               </div>
               <button
                 type="button"
@@ -299,23 +299,23 @@ export default function HomePage() {
             <p className="mb-5 max-w-3xl text-sm leading-7 text-slate-200">{featuredRole.playstyle}</p>
             <div className="grid gap-4 md:grid-cols-3">
               <div className="rounded-[1.3rem] border border-white/10 bg-black/20 p-4">
-                <div className="mb-2 text-xs uppercase tracking-[0.24em] text-slate-500">发言亮点</div>
+                <div className="mb-2 text-xs uppercase tracking-[0.2em] text-slate-500">发言亮点</div>
                 <p className="text-sm text-slate-100">“{featuredRole.speech}”</p>
               </div>
               <div className="rounded-[1.3rem] border border-white/10 bg-black/20 p-4">
-                <div className="mb-2 text-xs uppercase tracking-[0.24em] text-slate-500">风险提醒</div>
+                <div className="mb-2 text-xs uppercase tracking-[0.2em] text-slate-500">风险提醒</div>
                 <p className="text-sm text-slate-100">{featuredRole.counter}</p>
               </div>
               <div className="rounded-[1.3rem] border border-white/10 bg-black/20 p-4">
-                <div className="mb-2 text-xs uppercase tracking-[0.24em] text-slate-500">适合人群</div>
+                <div className="mb-2 text-xs uppercase tracking-[0.2em] text-slate-500">适合人群</div>
                 <p className="text-sm text-slate-100">想带节奏、敢拍板、能承压的玩家。</p>
               </div>
             </div>
           </div>
 
           <div className="grid gap-5">
-            <div className="rounded-[1.8rem] border border-cyan-400/15 bg-cyan-400/[0.06] p-6 backdrop-blur-xl">
-              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.28em] text-cyan-300">热门搜索</p>
+            <div className="rounded-[1.8rem] border border-cyan-400/15 bg-cyan-400/[0.06] p-5 backdrop-blur-xl md:p-6">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-cyan-300">热门搜索</p>
               <div className="flex flex-wrap gap-2">
                 {trendingKeywords.map((keyword) => (
                   <button
@@ -330,31 +330,39 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="rounded-[1.8rem] border border-fuchsia-400/15 bg-fuchsia-400/[0.06] p-6 backdrop-blur-xl">
-              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.28em] text-fuchsia-300">内容热榜</p>
+            <div className="rounded-[1.8rem] border border-fuchsia-400/15 bg-fuchsia-400/[0.06] p-5 backdrop-blur-xl md:p-6">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-fuchsia-300">内容热榜</p>
               <div className="space-y-3">
                 {[
-                  { label: 'TOP 1', title: featuredGuide.title, action: () => {
-                    setTab('guides');
-                    setActiveGuide(featuredGuide);
-                    setActiveRole(null);
-                    setActiveMap(null);
-                  } },
-                  { label: 'TOP 2', title: featuredMap.name, action: () => {
-                    setTab('maps');
-                    setActiveMap(featuredMap);
-                    setActiveRole(null);
-                    setActiveGuide(null);
-                  } },
+                  {
+                    label: 'TOP 1',
+                    title: featuredGuide.title,
+                    action: () => {
+                      setTab('guides');
+                      setActiveGuide(featuredGuide);
+                      setActiveRole(null);
+                      setActiveMap(null);
+                    },
+                  },
+                  {
+                    label: 'TOP 2',
+                    title: featuredMap.name,
+                    action: () => {
+                      setTab('maps');
+                      setActiveMap(featuredMap);
+                      setActiveRole(null);
+                      setActiveGuide(null);
+                    },
+                  },
                   { label: 'TOP 3', title: '警长误刀为什么最伤节奏', action: () => setQuery('警长') },
                 ].map((item) => (
                   <button
                     key={item.label}
                     type="button"
                     onClick={item.action}
-                    className="flex w-full items-center justify-between rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-left transition hover:bg-white/10"
+                    className="flex w-full flex-col items-start gap-2 rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-left transition hover:bg-white/10 sm:flex-row sm:items-center sm:justify-between"
                   >
-                    <span className="text-xs font-bold uppercase tracking-[0.24em] text-fuchsia-300">{item.label}</span>
+                    <span className="text-xs font-bold uppercase tracking-[0.2em] text-fuchsia-300">{item.label}</span>
                     <span className="text-sm text-slate-100">{item.title}</span>
                   </button>
                 ))}
@@ -365,9 +373,9 @@ export default function HomePage() {
 
         <section className="mb-10 grid gap-5 lg:grid-cols-[1.2fr_0.8fr]">
           <div className="rounded-[1.75rem] border border-white/10 bg-slate-950/65 p-5 backdrop-blur-xl">
-            <div className="mb-4 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+            <div className="mb-4 flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
               <div>
-                <p className="mb-2 text-xs font-semibold uppercase tracking-[0.28em] text-yellow-300">Control Center</p>
+                <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-yellow-300">Control Center</p>
                 <h2 className="text-2xl font-black text-white md:text-3xl">一页内完成主要交互</h2>
               </div>
 
@@ -389,7 +397,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="mb-5 grid gap-3 md:grid-cols-[1fr_auto]">
+            <div className="mb-5 grid gap-3 xl:grid-cols-[minmax(0,1fr)_auto] xl:items-start">
               <input
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
@@ -426,7 +434,7 @@ export default function HomePage() {
                       setActiveMap(null);
                       setActiveGuide(null);
                     }}
-                    className="text-left"
+                    className="group block h-full text-left"
                   >
                     <RoleCard role={role} />
                   </button>
@@ -445,7 +453,7 @@ export default function HomePage() {
                       setActiveRole(null);
                       setActiveMap(null);
                     }}
-                    className="text-left"
+                    className="group block h-full text-left"
                   >
                     <GuideCard guide={guide} />
                   </button>
@@ -464,7 +472,7 @@ export default function HomePage() {
                       setActiveRole(null);
                       setActiveGuide(null);
                     }}
-                    className="text-left"
+                    className="group block h-full text-left"
                   >
                     <MapCard map={map} />
                   </button>
@@ -491,7 +499,7 @@ export default function HomePage() {
 
           <div className="space-y-5">
             <div className="rounded-[1.75rem] border border-rose-400/15 bg-rose-400/8 p-6 backdrop-blur">
-              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.26em] text-rose-300">核心流量</p>
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-rose-300">核心流量</p>
               <h2 className="mb-3 text-2xl font-black text-white">骗人、演戏、甩锅</h2>
               <p className="text-sm leading-7 text-slate-300">
                 社交推理游戏的站点价值，不在百科，而在能不能快速把心理博弈内容做成可消费的结构。
@@ -499,7 +507,7 @@ export default function HomePage() {
             </div>
 
             <div className="rounded-[1.75rem] border border-amber-400/15 bg-amber-400/8 p-6 backdrop-blur">
-              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.26em] text-amber-300">内容策略</p>
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-amber-300">内容策略</p>
               <h2 className="mb-3 text-2xl font-black text-white">职业 + 发言 + 刀点</h2>
               <p className="text-sm leading-7 text-slate-300">
                 每个角色都不止讲技能；每张地图都不止列任务；每篇攻略都最好能给出一句能直接带进会议的模板。
@@ -519,7 +527,7 @@ export default function HomePage() {
             }}
             className="rounded-[1.75rem] border border-emerald-400/15 bg-emerald-400/[0.07] p-6 text-left backdrop-blur transition hover:-translate-y-1 hover:bg-emerald-400/[0.11]"
           >
-            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.26em] text-emerald-300">推荐攻略</p>
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-emerald-300">推荐攻略</p>
             <h3 className="mb-3 text-2xl font-black text-white">{featuredGuide.title}</h3>
             <p className="text-sm leading-7 text-slate-300">{featuredGuide.excerpt}</p>
           </button>
@@ -534,7 +542,7 @@ export default function HomePage() {
             }}
             className="rounded-[1.75rem] border border-cyan-400/15 bg-cyan-400/[0.07] p-6 text-left backdrop-blur transition hover:-translate-y-1 hover:bg-cyan-400/[0.11]"
           >
-            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.26em] text-cyan-300">推荐地图</p>
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-cyan-300">推荐地图</p>
             <h3 className="mb-3 text-2xl font-black text-white">{featuredMap.name}</h3>
             <p className="text-sm leading-7 text-slate-300">{featuredMap.bestFor}</p>
           </button>
@@ -548,7 +556,7 @@ export default function HomePage() {
             }}
             className="rounded-[1.75rem] border border-fuchsia-400/15 bg-fuchsia-400/[0.07] p-6 text-left backdrop-blur transition hover:-translate-y-1 hover:bg-fuchsia-400/[0.11]"
           >
-            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.26em] text-fuchsia-300">今日话题</p>
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-fuchsia-300">今日话题</p>
             <h3 className="mb-3 text-2xl font-black text-white">变形鸭为什么总能做假时间线？</h3>
             <p className="text-sm leading-7 text-slate-300">点开直接切到鸭阵营筛选，并把关键词聚焦到变形鸭。</p>
           </button>
@@ -556,7 +564,7 @@ export default function HomePage() {
 
         <section className="grid gap-5 lg:grid-cols-[0.92fr_1.08fr]">
           <div className="rounded-[1.75rem] border border-white/10 bg-slate-950/60 p-5 backdrop-blur-xl">
-            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.28em] text-cyan-300">Live Preview</p>
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-cyan-300">Live Preview</p>
             <h2 className="mb-5 text-2xl font-black text-white">当前预览面板</h2>
 
             {activeRole && <RolePanel role={activeRole} onClose={() => setActiveRole(null)} />}
@@ -572,7 +580,7 @@ export default function HomePage() {
 
           <div className="grid gap-5 md:grid-cols-2">
             <div className="rounded-[1.75rem] border border-white/10 bg-slate-950/60 p-6">
-              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.28em] text-emerald-300">为什么像成品</p>
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-emerald-300">为什么像成品</p>
               <h3 className="mb-4 text-2xl font-black text-white">不是静态首页，而是内容控制台</h3>
               <ul className="space-y-3 text-sm leading-7 text-slate-300">
                 <li>支持站内搜索，直接搜职业、发言、地图词。</li>
@@ -583,7 +591,7 @@ export default function HomePage() {
             </div>
 
             <div className="rounded-[1.75rem] border border-white/10 bg-slate-950/60 p-6">
-              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.28em] text-fuchsia-300">下一步内容扩展</p>
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-fuchsia-300">下一步内容扩展</p>
               <h3 className="mb-4 text-2xl font-black text-white">后面接内容会很顺</h3>
               <ul className="space-y-3 text-sm leading-7 text-slate-300">
                 <li>职业可继续加强度评级、站位建议、假身份剧本。</li>
