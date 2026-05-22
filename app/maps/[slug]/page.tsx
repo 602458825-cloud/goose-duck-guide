@@ -18,8 +18,8 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${map.name}攻略 - 鹅鸭杀手游攻略站`,
-    description: map.description,
+    title: `${map.name}地图攻略`,
+    description: `${map.name}任务路线、危险刀点与适合打法。`,
   };
 }
 
@@ -39,21 +39,42 @@ export default async function MapPage({
     <main>
       <Header />
 
-      <div className="mx-auto max-w-4xl px-4 py-14 md:py-20">
-        <h1 className="mb-6 text-4xl font-black md:text-5xl">{map.name}</h1>
-        <p className="mb-10 text-lg text-zinc-400">{map.description}</p>
+      <section className="mx-auto max-w-5xl px-4 py-14 md:py-20">
+        <div className="mb-8 rounded-[2rem] border border-white/10 bg-slate-950/80 p-8 shadow-2xl shadow-slate-950/40">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-cyan-300">地图攻略</p>
+          <h1 className="mb-4 text-4xl font-black text-white md:text-5xl">{map.name}</h1>
+          <p className="max-w-3xl text-base leading-8 text-slate-300 md:text-lg">{map.description}</p>
+        </div>
 
-        <section>
-          <h2 className="mb-5 text-2xl font-bold">地图任务</h2>
-          <div className="space-y-4">
-            {map.tasks.map((task) => (
-              <div key={task} className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
-                {task}
-              </div>
-            ))}
-          </div>
-        </section>
-      </div>
+        <div className="mb-6 rounded-[1.8rem] border border-cyan-400/15 bg-cyan-400/8 p-6">
+          <h2 className="mb-3 text-2xl font-black text-white">适合什么局</h2>
+          <p className="text-sm leading-7 text-slate-100">{map.bestFor}</p>
+        </div>
+
+        <div className="grid gap-6 lg:grid-cols-2">
+          <section className="rounded-[1.8rem] border border-white/10 bg-slate-950/70 p-6">
+            <h2 className="mb-4 text-2xl font-black text-white">任务路线</h2>
+            <div className="space-y-3">
+              {map.tasks.map((task) => (
+                <div key={task} className="rounded-xl border border-white/8 bg-black/20 p-4 text-sm text-slate-200">
+                  {task}
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="rounded-[1.8rem] border border-white/10 bg-slate-950/70 p-6">
+            <h2 className="mb-4 text-2xl font-black text-white">危险刀点</h2>
+            <div className="space-y-3">
+              {map.dangerZones.map((zone) => (
+                <div key={zone} className="rounded-xl border border-white/8 bg-black/20 p-4 text-sm text-slate-100">
+                  {zone}
+                </div>
+              ))}
+            </div>
+          </section>
+        </div>
+      </section>
     </main>
   );
 }
