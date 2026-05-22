@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { guides, maps, roles } from '@/lib/data';
 
-const baseUrl = 'https://example.com';
+const baseUrl = 'https://goose-duck-guide.vercel.app';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const roleRoutes = roles.map((role) => ({

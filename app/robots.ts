@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://example.com/sitemap.xml',
+    sitemap: 'https://goose-duck-guide.vercel.app/sitemap.xml',
   };
 }

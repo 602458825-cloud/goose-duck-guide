@@ -5,7 +5,7 @@ const siteName = '鹅鸭杀手游攻略站';
 const siteDescription = '最全鹅鸭杀手游职业攻略、地图任务、发言技巧与高端局套路。';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://example.com'),
+  metadataBase: new URL('https://goose-duck-guide.vercel.app'),
   title: {
     default: siteName,
     template: `%s | ${siteName}`,
