@@ -3,6 +3,10 @@ import { notFound } from 'next/navigation';
 import Header from '@/components/Header';
 import { maps } from '@/lib/data';
 
+export async function generateStaticParams() {
+  return maps.map((map) => ({ slug: map.slug }));
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -19,7 +23,7 @@ export async function generateMetadata({
 
   return {
     title: `${map.name}地图攻略`,
-    description: `${map.name}任务路线、危险刀点与适合打法。`,
+    description: `${map.name}任务路线、危险刀点、转点思路与适合打法整理。`,
   };
 }
 
@@ -47,13 +51,13 @@ export default async function MapPage({
         </div>
 
         <div className="mb-6 rounded-[1.8rem] border border-cyan-400/15 bg-cyan-400/8 p-6">
-          <h2 className="mb-3 text-2xl font-black text-white">适合什么局</h2>
+          <h2 className="mb-3 text-2xl font-black text-white">这张图适合什么局</h2>
           <p className="text-sm leading-7 text-slate-100">{map.bestFor}</p>
         </div>
 
         <div className="grid gap-6 lg:grid-cols-2">
           <section className="rounded-[1.8rem] border border-white/10 bg-slate-950/70 p-6">
-            <h2 className="mb-4 text-2xl font-black text-white">任务路线</h2>
+            <h2 className="mb-4 text-2xl font-black text-white">任务路线建议</h2>
             <div className="space-y-3">
               {map.tasks.map((task) => (
                 <div key={task} className="rounded-xl border border-white/8 bg-black/20 p-4 text-sm text-slate-200">
@@ -76,9 +80,9 @@ export default async function MapPage({
         </div>
 
         <div className="mt-6 rounded-[1.4rem] border border-white/10 bg-slate-950/60 p-5">
-          <h3 className="mb-3 text-lg font-black text-white">地图阅读建议</h3>
+          <h3 className="mb-3 text-lg font-black text-white">阅读建议</h3>
           <p className="text-sm leading-7 text-slate-300">
-            真正要读懂一张地图，不只是记任务点，还要记转角、视野断层、长走廊和会议前后最容易出锅的位置。
+            真正要读懂一张图，不只是背任务名，还要记转角、视野断层、长走廊、门控和会议前后最容易出锅的位置。
           </p>
         </div>
       </section>

@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { guides, maps, roles } from '@/lib/data';
+import { guides, maps, roles, seoQuestions } from '@/lib/data';
 
 const baseUrl = 'https://goose-duck-guide.vercel.app';
 
@@ -22,14 +22,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
+  const questionRoutes = seoQuestions.map((question) => ({
+    url: `${baseUrl}/questions/${question.slug}`,
+    changeFrequency: 'weekly' as const,
+    priority: 0.75,
+  }));
+
   return [
     {
       url: baseUrl,
       changeFrequency: 'daily',
       priority: 1,
     },
+    {
+      url: `${baseUrl}/questions`,
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
     ...roleRoutes,
     ...guideRoutes,
     ...mapRoutes,
+    ...questionRoutes,
   ];
 }

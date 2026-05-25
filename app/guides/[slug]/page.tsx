@@ -3,6 +3,10 @@ import { notFound } from 'next/navigation';
 import Header from '@/components/Header';
 import { guides } from '@/lib/data';
 
+export async function generateStaticParams() {
+  return guides.map((guide) => ({ slug: guide.slug }));
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -69,7 +73,7 @@ export default async function GuidePage({
         <div className="mt-6 rounded-[1.4rem] border border-white/10 bg-slate-950/60 p-5">
           <h3 className="mb-3 text-lg font-black text-white">使用建议</h3>
           <p className="text-sm leading-7 text-slate-300">
-            攻略页更适合配合具体职业和地图一起读。只看技巧不看场景，往往会在真实对局里出现节奏错位。
+            这类攻略最适合和具体职业、地图一起读。只背技巧不看场景，真实对局里很容易出现节奏错位。
           </p>
         </div>
       </section>
